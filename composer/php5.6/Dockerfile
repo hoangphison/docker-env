@@ -1,4 +1,4 @@
-FROM php:5.6-cli-alpine
+FROM hoangphison/php:5.6-cli-alpine
 
 LABEL maintainer="hello@hoangphison.com"
 
@@ -8,13 +8,9 @@ ENV COMPOSER_VERSION master
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN set -xe \
-    && apk add --no-cache --virtual .persistent-deps \
-        zlib-dev \
-        libzip-dev \
+RUN apk add --update --no-cache \
         git \
-        unzip \
-        php5-zip
+        unzip
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer global require hirak/prestissimo
