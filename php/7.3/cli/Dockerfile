@@ -8,6 +8,7 @@ RUN echo "https://dl.bintray.com/php-alpine/v3.9/php-7.3" >> /etc/apk/repositori
 
 RUN apk update \
 	&& apk add --update \
+	    curl \
 		php \
 		php-common \
 		php-bcmath \
@@ -22,7 +23,6 @@ RUN apk update \
 		php-json \
 		php-ldap \
 		php-mbstring \
-		# php-mcrypt \
 		php-mysqli \
 		php-opcache \
 		php-openssl \
@@ -33,6 +33,7 @@ RUN apk update \
 		php-xml \
 		php-zip \
 		php-zlib \
+		php-phar \
 		php-memcached \
 		php-mongodb \
 		php-xdebug
